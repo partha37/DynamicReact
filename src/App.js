@@ -3,13 +3,13 @@ import react, { Component } from "react";
 import UserInput from "./UserInput/UserInput";
 import UserPass from "./UserInput/UserPass";
 import UserSubmit from "./UserInput/UserSubmit";
-import Lists from'./UserInput/List'
+import Lists from "./UserInput/List";
 
 class App extends Component {
   state = {
     uname: "",
     Password: "",
-    alldata:[]
+    alldata: []
   };
 
   UserInputhandler = (event) => {
@@ -29,13 +29,12 @@ class App extends Component {
   getLists() {
     this.setState(() => {
       fetch("https://jsonplaceholder.typicode.com/todos/?_limit=10")
-        .then(res => res.json())
-        .then(result =>
+        .then((res) => res.json())
+        .then((result) =>
           this.setState({
             alldata: result
           })
-        )
-        .catch(console.log);
+        );
     });
   }
 
@@ -49,8 +48,8 @@ class App extends Component {
           <UserPass passchange={this.UserPasshandler} />
         </div>
         <UserSubmit usersubmit={this.UserSubmithandle} />
-       
-        <Lists alldata={this.state.alldata} click={this.getLists()}/>
+
+        <Lists alldata={this.state.alldata} click={this.getLists()} />
       </div>
     );
   }
