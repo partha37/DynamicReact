@@ -29,12 +29,13 @@ class App extends Component {
   getLists() {
     this.setState(() => {
       fetch("https://jsonplaceholder.typicode.com/todos/?_limit=10")
-        .then((res) => res.json())
-        .then((result) =>
+        .then(res => res.json())
+        .then(result =>
           this.setState({
             alldata: result
           })
-        );
+        )
+        .catch(console.log);
     });
   }
 
