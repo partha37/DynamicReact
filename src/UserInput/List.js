@@ -1,4 +1,5 @@
 import React from "react";
+import "./List.css";
 
 function Lists(props) {
   var rows = [];
@@ -6,7 +7,7 @@ function Lists(props) {
     rows.push(
       <tr key={element.id}>
         <td>{element.id}</td>
-        <td>{element.title}</td>
+        <td className="tdstyle">{element.title}</td>
       </tr>
     );
   });
@@ -16,7 +17,7 @@ function Lists(props) {
       <table className="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
+            <th>Id</th>
             <th>Title</th>
           </tr>
         </thead>
