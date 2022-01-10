@@ -13,7 +13,7 @@ function Lists(props) {
   });
   return (
     <div>
-      <button onClick={props.viewlist}>View List</button>
+      <button onClick={props.viewlist}>View Lists</button>
       <table className="table table-striped">
         <thead>
           <tr>
