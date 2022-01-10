@@ -26,18 +26,18 @@ class App extends Component {
     console.log(this.state.uname);
     console.log(this.state.Password);
   };
-  getLists() {
+  getLists = () => {
     this.setState(() => {
       fetch("https://jsonplaceholder.typicode.com/todos/?_limit=10")
-        .then(res => res.json())
-        .then(result =>
+        .then((res) => res.json())
+        .then((result) =>
           this.setState({
             alldata: result
           })
         )
         .catch(console.log);
     });
-  }
+  };
 
   render() {
     return (
@@ -50,7 +50,7 @@ class App extends Component {
         </div>
         <UserSubmit usersubmit={this.UserSubmithandle} />
 
-        <Lists alldata={this.state.alldata} click={this.getLists()} />
+        <Lists alldata={this.state.alldata} viewlist={this.getLists} />
       </div>
     );
   }
