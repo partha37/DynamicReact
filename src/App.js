@@ -9,7 +9,8 @@ class App extends Component {
   state = {
     uname: "",
     Password: "",
-    alldata: []
+    alldata: [],
+    types: ["car", "bike", "motor"]
   };
 
   UserInputhandler = (event) => {
@@ -39,6 +40,12 @@ class App extends Component {
     });
   };
 
+  deleteHandler = (propind) => {
+    const data = [...this.state.types];
+    data.splice(propind, 1);
+    this.setState({ types: data });
+  };
+
   render() {
     return (
       <div>
@@ -51,6 +58,9 @@ class App extends Component {
         <UserSubmit usersubmit={this.UserSubmithandle} />
 
         <Lists alldata={this.state.alldata} viewlist={this.getLists} />
+        {this.state.types.map((elem, val) => {
+          return <p onClick={this.deleteHandler.bind(val)}>{elem}</p>;
+        })}
       </div>
     );
   }
